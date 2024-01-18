@@ -113,7 +113,7 @@ export default function OrderDetails() {
 
   return isLoading ? null : (
     <Page>
-      <GoBackLink to="/myAccount/myOrders">Regresar</GoBackLink>
+      <GoBackLink to="/myAccount/myOrders">Go Back</GoBackLink>
       <OrderId>
         Nº ID:<span>{thisOrder?.orderID}</span>
       </OrderId>

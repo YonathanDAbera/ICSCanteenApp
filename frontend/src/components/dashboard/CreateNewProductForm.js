@@ -307,8 +307,8 @@ export function ImageUploader({ register, errors, isNotRequired }) {
 export function FormButtons() {
   return (
     <ButtonsWrapper>
-      <LoadButton as="input" type="submit" value="Cargar" />
-      <ResetButton as="input" type="reset" value="Abortar" />
+      <LoadButton as="input" type="submit" value="Load" />
+      <ResetButton as="input" type="reset" value="Reset" />
     </ButtonsWrapper>
   );
 }

@@ -120,7 +120,7 @@ function DashboardCategories() {
 
       <Wrapper>
         <FormCard>
-          <h4>Remove Category</h4>
+          <h4>Edit Category</h4>
 
           <form name="editCategory" onSubmit={handleRenameSubmit}>
             <OptionList
@@ -134,7 +134,7 @@ function DashboardCategories() {
               ))}
             </OptionList>
 
-            <DeleteButton onClick={handleDelete}>Eliminar</DeleteButton>
+            <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
             {isDeleteFormLoading && <LoaderSpinner small />}
             <hr></hr>
 
@@ -154,7 +154,7 @@ function DashboardCategories() {
 
             {isCreateFormLoading && <LoaderSpinner small />}
 
-            <LoadButton as="input" type="submit" value="Cargar" />
+            <LoadButton as="input" type="submit" value="Load" />
           </form>
         </FormCard>
       </Wrapper>

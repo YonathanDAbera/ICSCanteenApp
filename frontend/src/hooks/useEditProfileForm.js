@@ -19,13 +19,14 @@ export default function useEditProfileForm() {
   const [formIsLoading, setFormIsLoading] = useState(false);
 
   const defaultsValues = {
-    name: currentUser.name.split(" ")[0],
-    lastName: currentUser.name.split(" ")[1],
-    street: currentUser.address.split(",")[0].split(" ").slice(0, -1).join(" "),
-    streetNumber: currentUser.address.split(",")[0].split(" ").splice(-1),
-    number: currentUser.number,
-    city: currentUser.address.split(",")[1].trim(),
+    name: (currentUser && currentUser.name) ? currentUser.name.split(" ")[0] : "",
+    lastName: (currentUser && currentUser.name) ? currentUser.name.split(" ")[1] : "",
+    street: (currentUser && currentUser.address) ? currentUser.address.split(",")[0].split(" ").slice(0, -1).join(" ") : "",
+    streetNumber: (currentUser && currentUser.address) ? currentUser.address.split(",")[0].split(" ").splice(-1) : "",
+    number: currentUser ? currentUser.number : "",
+    city: (currentUser && currentUser.address) ? currentUser.address.split(",")[1].trim() : "",
   };
+  
 
   const history = useHistory();
 

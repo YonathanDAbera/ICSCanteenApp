@@ -202,7 +202,7 @@ function EditMyProfile() {
 
   return (
     <EditProfilePage>
-      <GoToProfileLink to="/myAccount/myProfile">Regresar</GoToProfileLink>
+      <GoToProfileLink to="/myAccount/myProfile">Go Back</GoToProfileLink>
 
       <EditProfileForm onSubmit={handleSubmit(onSubmit)} novalidate>
         <FormIcon src={userEditIcon} alt="edit-profile" />
