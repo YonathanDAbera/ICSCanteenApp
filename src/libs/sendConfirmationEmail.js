@@ -3,7 +3,7 @@ const sendEmail = require("../config/nodemailer");
 const sendConfirmationEmail = async (url, email) => {
   try {
     const emailOptions = {
-      from: `"Food Delivery App " <${process.env.OAUTH_USER}> `,
+      from: `"ICS Canteen " <${process.env.OAUTH_USER}> `,
       to: email,
       subject: "Email Account Confirmation",
       html: `

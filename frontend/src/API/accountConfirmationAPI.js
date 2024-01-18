@@ -9,7 +9,7 @@ const accountConfirmationAPI = async ({
 
   try {
     const email = localStorage.getItem("toConfirmUser");
-    const info = { email }; // Adjusted to provide email as a string
+    const info = { email }; 
 
     const { response } = await POST("/api/auth/confirmation", info);
 
