@@ -11,7 +11,6 @@ const {
 
 const {
   verifyToken,
-  isAdmin,
   isAdminOrIsModerator,
 } = require("../middleware/authJwt");
 const {

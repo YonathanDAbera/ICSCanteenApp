@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const STATES = ["enviado", "aceptado", "despachado", "entregado", "liquidado"];
+const STATES = ["Sent", "Accepted", "Dispatched", "Delievered", "Completed"];
 
 const orderSchema = new Schema(
   {
@@ -46,7 +46,7 @@ const orderSchema = new Schema(
 
 orderSchema.methods.createStates = function createStates() {
   this.states = STATES.map((state) => {
-    if (state === "enviado")
+    if (state === "")
       return { name: state, confirmed: true, date: Date.now() };
 
     return { name: state, confirmed: false };
