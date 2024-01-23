@@ -46,7 +46,7 @@ const orderSchema = new Schema(
 
 orderSchema.methods.createStates = function createStates() {
   this.states = STATES.map((state) => {
-    if (state === "")
+    if (state === "Sent")
       return { name: state, confirmed: true, date: Date.now() };
 
     return { name: state, confirmed: false };

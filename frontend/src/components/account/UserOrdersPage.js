@@ -208,7 +208,7 @@ export default function UserOrdersPage({ closeNotification }) {
                       {
                         [...order?.states]
                           .reverse()
-                          .find((state) => state.confirmed === true).name
+                          .find((state) => state.confirmed === true)?.name
                       }
                     </b>
                   </td>
