@@ -146,7 +146,7 @@ export const DropZone = styled.input`
     font-weight: 600;
     align-items: center;
     border-radius: 3px;
-    content: "Seleccionar Imagen";
+    content: "Select Image";
     position: absolute;
     left: 0;
     right: 0;

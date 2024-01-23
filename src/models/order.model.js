@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const STATES = ["Sent", "Accepted", "Dispatched", "Delievered", "Completed"];
+const STATES = ["Sent", "Accepted", "Dispatched", "Delivered", "Completed"];
 
 const orderSchema = new Schema(
   {

@@ -9,22 +9,19 @@ export default function useOrderNotification() {
   const [newOrdersCount, setNewOrdersCount] = useState(0);
   const [socket, setSocket] = useState(null);
   const { currentUser, isLogin } = useStorage();
-
   const closeActualizationNotification = () => {
     setActualizationCount(0);
   };
-
   const closeNewOrderNotification = () => {
     setNewOrdersCount(0);
   };
-
   useEffect(() => {
     if (isLogin) {
       const ENDPOINT = "http://127.0.0.1:7000";
       const socket = io.connect(ENDPOINT);
       socket.auth = {
         userId: currentUser._id,
-        userRole: currentUser.name,
+        userRole: currentUser.roles[0].name,
       };
 
       socket.on("connect", () => {
@@ -34,28 +31,22 @@ export default function useOrderNotification() {
 
       return () => socket.disconnect();
     }
-  }, [isLogin, currentUser._id, currentUser.name]);
+  }, [isLogin]);
 
-  useEffect(() => {
-    if (socket) {
-      socket.on("newOrder", () => {
-        setNewOrdersCount(newOrdersCount + 1);
-      });
+  if (socket) {
+    socket?.on("newOrder", () => {
+      setNewOrdersCount(newOrdersCount + 1);
+    });
 
-      socket.on("orderActualization", (order) => {
-        const lastUpdateState = [...order.states]
-          .reverse()
-          .find((state) => state.confirmed === true);
+    socket?.on("orderActualization", (order) => {
+      const lastUpdateState = [...order.states]
+        .reverse()
+        .find((state) => state.confirmed === true);
 
-        if (lastUpdateState) {
-          setActualizationCount(actualizationCount + 1);
-          setOrderActualizationMessage(`Order ${lastUpdateState.name}`);
-        } else {
-          console.error("lastUpdateState is undefined");
-        }
-      });
-    }
-  }, [socket, actualizationCount, newOrdersCount]);
+      setActualizationCount(setActualizationCount + 1);
+      setOrderActualizationMessage(`Order ${lastUpdateState.name}`);
+    });
+  }
 
   return {
     newOrdersCount,

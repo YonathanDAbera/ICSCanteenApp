@@ -103,7 +103,7 @@ export default function DashboardOrders({ closeNotification }) {
   return (
     <Page isLoading={isLoading}>
       <DashboardNav />
-      <SectionTitle>Pedidos</SectionTitle>
+      <SectionTitle>Orders</SectionTitle>
 
       <SearchBar
         defaultValue={orderID}

@@ -142,7 +142,7 @@ function DashboardCategories() {
 
             <Input placeholder={"Rename Category"} name="categoryNewName" />
             {isRenameFormLoading && <LoaderSpinner small />}
-            <LoadButton as="input" type="submit" value="Editar" />
+            <LoadButton as="input" type="submit" value="Edit" />
           </form>
         </FormCard>
 
