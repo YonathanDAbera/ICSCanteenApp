@@ -63,7 +63,7 @@ const sendConfirmationEmail = async (req, res) => {
     const token = userFound.emailToken;
 
     const url = `${
-      "localhost:7000"
+      process.env.HOST || "localhost:7000"
     }/api/auth/verification/${token}`;
 
     await sendConfirmationEmailFunction(url, userFound.email);
@@ -205,7 +205,7 @@ const sendResetPasswordEmail = async (req, res) => {
     );
 
     const url = `${
-      "localhost:3000"
+      process.env.HOST || "localhost:3000"
     }/#/authentication/resetPassword/${token}`;
 
     await sendResetPasswordEmailFunction(url, req.body.email);
