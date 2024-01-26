@@ -7,7 +7,7 @@ let io = {};
 function connectIO(server) {
   io = new Server(server, {
     cors: {
-      origin: ["https://ics-canteen-app.vercel.app"],
+      origin: ["https://ics-canteen-app.vercel.app/#/"],
       methods: ["GET", "POST"],
     },
   });
