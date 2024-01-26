@@ -5,6 +5,10 @@ const { connectIO } = require("./src/config/io");
 
 const http = require("http").createServer(app);
 
+app.get("/", (req, res) => {
+  res.json("Hello")
+})
+
 const {
   createRoles,
   createAdmin,
