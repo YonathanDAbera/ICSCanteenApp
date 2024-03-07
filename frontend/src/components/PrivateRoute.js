@@ -18,7 +18,7 @@ return (
 
         <Route {...rest} render={props => (
           
-            (isAdmin)?
+            (isAdmin || isModerator)?
                 <Component {...props} />
             : <Redirect to="/authentication/login" />
         )} />

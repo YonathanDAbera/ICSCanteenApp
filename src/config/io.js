@@ -7,7 +7,7 @@ let io = {};
 function connectIO(server) {
   io = new Server(server, {
     cors: {
-      origin: ["https://ics-canteen-app.vercel.app"],
+      origin: ["http://localhost:3000"],
       methods: ["GET", "POST"],
     },
   });
@@ -21,18 +21,24 @@ function connectIO(server) {
     ioStorage[socket.data.userId] = { socketId: socket.id };
 
     if (
-      socket.data.userRole === "admin" ||
-      socket.data.userRole === "moderator"
+      socket.data.userRole === "admin"
     ) {
       console.log("admin join room");
       socket.join("admins-room");
+    }
+    
+    if (
+      socket.data.userRole === "moderator"
+    ) {
+      console.log("moderator join room");
+      socket.join("moderators-room");
     }
 
     socket.on("disconnect", (socket) => {
       console.log("user disconnected");
     });
     emiter.on("newOrder", (order) => {
-      io.in("admins-room").emit("newOrder", order);
+      io.in("admins-room", "moderators-room").emit("newOrder", order);
     });
     emiter.on("orderActualization", (userId, order) => {
       const orderClientSocket = ioStorage[userId]?.socketId;

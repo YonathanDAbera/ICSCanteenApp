@@ -10,6 +10,7 @@ export default function useEditProfileForm() {
     setCurrentUser,
     setAllUsers,
     isAdmin,
+    isModerator,
     setIsSuccessfullySend,
     currentUser,
   } = useStorage();
@@ -63,6 +64,7 @@ export default function useEditProfileForm() {
       setServerError,
       info,
       isAdmin,
+      isModerator,
       setAllUsers,
       token,
       history,

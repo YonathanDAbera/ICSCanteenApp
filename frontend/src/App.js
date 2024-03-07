@@ -62,8 +62,10 @@ function App() {
       setCurrentUser(data.user);
       if (data.user.roles[0].name === "admin") {
         setIsAdmin(true);
-      } else if (data.user.roles[0].name === "moderator") {
+      }
+      if (data.user.roles[0].name === "moderator") {
         setIsModerator(true);
+        console.log("Moderator here")
       }
 
       setIsLogin(true);

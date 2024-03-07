@@ -44,7 +44,11 @@ async function loginAPI({
       }
       if (roles[0].name === "moderator") {
         setIsModerator(true);
+
+        await usersAPI({ setAllUsers, token });
+
         setIsLoading(false);
+        
         return history.push("/dashboard/myProducts");
       }
 

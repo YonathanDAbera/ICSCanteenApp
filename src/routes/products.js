@@ -9,7 +9,7 @@ const {
   updateProductById,
   deleteProductById,
 } = require("../controllers/productsControllers");
-const { verifyToken, isAdmin } = require("../middleware/authJwt");
+const { verifyToken, isAdmin, isModerator } = require("../middleware/authJwt");
 
 const checkCategoryExist = require("../middleware/verifyProduct");
 const checkIsValidId = require("../middleware/checkIsValidId");
@@ -42,16 +42,16 @@ router.get("/:id", [checkIsValidId], getProductById);
 
 router.post(
   "/",
-  [verifyToken, isAdmin, upload.single("img"), checkCategoryExist],
+  [verifyToken, isAdmin, isModerator, upload.single("img"), checkCategoryExist],
   postNewProduct
 );
 
 router.put(
   "/:id",
-  [verifyToken, isAdmin, upload.single("img"), checkCategoryExist],
+  [verifyToken, isAdmin, isModerator, upload.single("img"), checkCategoryExist],
   updateProductById
 );
 
-router.delete("/:id", [verifyToken, isAdmin], deleteProductById);
+router.delete("/:id", [verifyToken, isAdmin, isModerator], deleteProductById);
 
 module.exports = router;

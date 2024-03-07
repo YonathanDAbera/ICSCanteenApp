@@ -7,6 +7,7 @@ async function UploadProfileAPI({
   setServerError,
   info,
   isAdmin,
+  isModerator,
   setAllUsers,
   token,
   setCurrentUser,
@@ -21,7 +22,7 @@ async function UploadProfileAPI({
     setFormIsLoading(false);
 
     if (json.user) {
-      isAdmin && (await usersAPI({ token, setAllUsers }));
+      (isAdmin || isModerator) && (await usersAPI({ token, setAllUsers }));
 
       setCurrentUser(json.user);
 
