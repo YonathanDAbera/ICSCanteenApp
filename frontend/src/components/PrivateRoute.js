@@ -2,7 +2,7 @@ import {Redirect,Route} from 'react-router-dom'
 import {useContext } from 'react' 
 import AppContext from '../context/app-context'
 export default function PrivateRoute  ({component: Component, ...rest}) {
-       const {isAdmin,isModerator} = useContext(AppContext);
+       const {isAdminOrIsModerator} = useContext(AppContext);
 
        const AdminPrivateRoutes = ["/dashboard/users"] ;
        
@@ -18,7 +18,7 @@ return (
 
         <Route {...rest} render={props => (
           
-            (isAdmin || isModerator)?
+            (isAdminOrIsModerator)?
                 <Component {...props} />
             : <Redirect to="/authentication/login" />
         )} />
@@ -31,7 +31,7 @@ return (
 
         <Route {...rest} render={props => (
           
-            (isAdmin  || isModerator)?
+            (isAdminOrIsModerator)?
                 <Component {...props} />
             : <Redirect to="/authentication/login" />
         )} />

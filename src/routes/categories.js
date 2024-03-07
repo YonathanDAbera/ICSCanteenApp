@@ -4,7 +4,7 @@ const {
   checkDuplicatedCategory,
   checkCategoryExist,
 } = require("../middleware/verifyCategory");
-const { verifyToken, isAdmin, isModerator } = require("../middleware/authJwt");
+const { verifyToken, isAdminOrIsModerator } = require("../middleware/authJwt");
 const {
   getAllCategories,
   deleteCategory,
@@ -15,17 +15,17 @@ const {
 router.get("/", getAllCategories);
 router.post(
   "/",
-  [verifyToken, isAdmin, isModerator, checkDuplicatedCategory],
+  [verifyToken, isAdminOrIsModerator, checkDuplicatedCategory],
   createCategory
 );
 router.put(
   "/:id",
-  [verifyToken, isAdmin, isModerator, checkCategoryExist],
+  [verifyToken, isAdminOrIsModerator, checkCategoryExist],
   editCategoryName
 );
 router.delete(
   "/:id",
-  [verifyToken, isAdmin, isModerator, checkCategoryExist],
+  [verifyToken, isAdminOrIsModerator, checkCategoryExist],
   deleteCategory
 );
 

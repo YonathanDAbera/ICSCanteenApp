@@ -6,7 +6,7 @@ const {
   updateUserRoleById,
   updateProfileById,
 } = require("../controllers/usersControllers");
-const { verifyToken, isAdmin, isModerator } = require("../middleware/authJwt");
+const { verifyToken, isAdminOrIsModerator } = require("../middleware/authJwt");
 const {
   checkDuplicatedEmail,
   checkRolesExisted,
@@ -22,15 +22,14 @@ router.get("/:id", [verifyToken], getUserById);
 router.put("/me", [verifyToken, checkIsValidUpdate], updateProfileById);
 router.put(
   "/role/:id",
-  [verifyToken, isAdmin, isModerator, checkRolesExisted],
+  [verifyToken, isAdminOrIsModerator, checkRolesExisted],
   updateUserRoleById
 );
 router.post(
   "/",
   [
     verifyToken,
-    isAdmin,
-    isModerator,
+    isAdminOrIsModerator,
     checkDuplicatedEmail,
     checkRolesExisted,
     checkIsValidUser,

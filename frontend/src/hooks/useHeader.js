@@ -2,7 +2,7 @@ import {  useState } from 'react'
 import {useStorage} from '../context/useStorage'
 import {useCartStorage} from '../context/cart_context/useCartStorage'
 export default function useHeader(){
-const {  isLogin,isAdmin,isModerator}  = useStorage()
+const {  isLogin,isAdminOrIsModerator}  = useStorage()
 const { toggleCart,numberOfProductsInCart} =useCartStorage()
   const [navIsOpened, setNavIsOpened ]= useState(false)
 
@@ -18,6 +18,6 @@ const closeNav = ( ) =>{
 
 
 
-return {handelNavClick, closeNav,navIsOpened,numberOfProductsInCart, isLogin,toggleCart,isAdmin,isModerator}
+return {handelNavClick, closeNav,navIsOpened,numberOfProductsInCart, isLogin,toggleCart,isAdminOrIsModerator}
 
 }
