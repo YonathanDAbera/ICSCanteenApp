@@ -38,7 +38,7 @@ const checkCategoryExist = async (req, res, next) => {
 
     res.status(500).json({
       success: false,
-      message: "Something went wrong, category existence verification fail Lolollo",
+      message: "Something went wrong, category existence verification fail",
     });
   }
 };

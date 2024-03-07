@@ -23,14 +23,22 @@ const createCategory = async (req, res) => {
     return res.status(201).json({
       successful: true,
       category: newCategory,
-      message: `Category ${newCategory} created successfully`,
+      message: `Category ${newCategory.name} created successfully`,
     });
   } catch (err) {
-    console.log(err);
-    return res.status(500).json({
-      successful: false,
-      message: "Something went wrong, could create new category",
-    });
+    console.error(err); // Log the entire error object for debugging
+
+    if (err.name === 'ValidationError') {
+      return res.status(400).json({
+        successful: false,
+        message: `Validation error: ${err.message}`,
+      });
+    } else {
+      return res.status(500).json({
+        successful: false,
+        message: "Internal server error",
+      });
+    }
   }
 };
 const deleteCategory = async (req, res) => {
