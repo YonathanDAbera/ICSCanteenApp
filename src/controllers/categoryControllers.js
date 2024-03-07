@@ -19,7 +19,7 @@ const createCategory = async (req, res) => {
   try {
     const crypto = require("crypto");
     const newCategoryId = crypto.randomBytes(16).toString("hex")
-    const newCategory = new Category({ _id: newCategoryId, name: req.body.category });
+    const newCategory = new Category({ id: newCategoryId, name: req.body.category });
     await newCategory.save();
 
     return res.status(201).json({
