@@ -1,5 +1,6 @@
 const { Category } = require("../models/category.model");
 const Products = require("../models/product.model");
+const { nanoid } = require('nanoid');
 
 const getAllCategories = async (req, res) => {
   try {
@@ -17,7 +18,8 @@ const getAllCategories = async (req, res) => {
 
 const createCategory = async (req, res) => {
   try {
-    const newCategory = new Category({ name: req.body.category });
+    const newCategoryId = nanoid(); // Generate a random ID
+    const newCategory = new Category({ _id: newCategoryId, name: req.body.category });
     await newCategory.save();
 
     return res.status(201).json({
