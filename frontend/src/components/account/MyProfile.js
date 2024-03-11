@@ -101,7 +101,7 @@ function MyProfile() {
             </UserInfo>
             <dt>Room Number: </dt>
             <UserInfo>
-              {currentUser.address || "No address inputed"}
+              {currentUser.address || "No room number inputed"}
             </UserInfo>
           </dl>
           <br />

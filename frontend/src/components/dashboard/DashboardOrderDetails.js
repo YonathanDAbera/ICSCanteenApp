@@ -34,11 +34,11 @@ export default function OrderDetails() {
 
           <ClientInfo>
             <p>
-              <b>Recipient Address:</b>
+              <b>Recipient Name:</b>
               {thisOrder?.client[0]?.name}
             </p>
             <p>
-              <b>Address: </b>
+              <b>Room Number: </b>
               {thisOrder?.client[0]?.address}
             </p>
             <p>

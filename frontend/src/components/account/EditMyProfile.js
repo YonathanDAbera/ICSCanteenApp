@@ -121,53 +121,18 @@ function CellphoneInput({ register, errors, placeholder, defaultValue }) {
     </Fragment>
   );
 }
-function CityAddressOptions({ register, defaultValue }) {
-  return (
-    <OptionList
-      name="userCityAddress"
-      defaultValue={defaultValue}
-      ref={register({
-        required: "*The field is required",
-      })}
-    >
-      <Option value="Córdoba">Addis Ababa</Option>
-      <Option value="Buenos Aires">Ethiopia</Option>
-    </OptionList>
-  );
-}
-function StreetAddressInput({ errors, placeholder, register, defaultValue }) {
+function RoomNumberInput({ errors, placeholder, register, defaultValue }) {
   return (
     <Fragment>
-      {errors.userStreetAddress && (
+      {errors.userRoomNumber && (
         <ErrorMessage role="alert">
-          {errors.userStreetAddress.message}
+          {errors.userRoomNumber.message}
         </ErrorMessage>
       )}
 
       <TextInput
         placeholder={placeholder}
-        name="userStreetAddress"
-        defaultValue={defaultValue || ""}
-        ref={register({
-          required: "*The field is required",
-        })}
-        style={{ borderColor: errors.userStreetAddress && "#bf0000" }}
-      />
-    </Fragment>
-  );
-}
-function StreetNumberInput({ errors, placeholder, register, defaultValue }) {
-  return (
-    <Fragment>
-      {errors.userStreetNumber && (
-        <ErrorMessage role="alert">
-          {errors.userStreetNumber.message}
-        </ErrorMessage>
-      )}
-
-      <TextInput
-        placeholder={placeholder}
-        name="userStreetNumber"
+        name="userRoomNumber"
         defaultValue={defaultValue || ""}
         ref={register({
           required: "*The field is required",
@@ -181,7 +146,7 @@ function StreetNumberInput({ errors, placeholder, register, defaultValue }) {
             message: "*Only numbers accepted",
           },
         })}
-        style={{ borderColor: errors.userStreetNumber && "#bf0000" }}
+        style={{ borderColor: errors.userRoomNumber && "#bf0000" }}
       />
     </Fragment>
   );
@@ -223,24 +188,11 @@ function EditMyProfile() {
           register={register}
           placeholder="Your phone number..."
         />
-
-        <CityAddressOptions
-          register={register}
-          defaultValue={defaultsValues.city}
-        />
-
-        <StreetAddressInput
-          errors={errors}
-          register={register}
-          placeholder="Call..."
-          defaultValue={defaultsValues.street}
-        />
-
-        <StreetNumberInput
+        <RoomNumberInput
           errors={errors}
           register={register}
           placeholder="Room number..."
-          defaultValue={defaultsValues.streetNumber}
+          defaultValue={defaultsValues.roomNumber}
         />
         <InputWrapper>
           <NewPasswordCheckbox

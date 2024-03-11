@@ -145,7 +145,7 @@ export default function DashboardOrders({ closeNotification }) {
               <tr>
                 <th>Order No.</th>
                 <th>Date</th>
-                <th>Address</th>
+                <th>Room Number</th>
                 <th>Total</th>
                 <th>Status</th>
               </tr>

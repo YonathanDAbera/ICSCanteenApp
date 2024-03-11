@@ -37,9 +37,9 @@ const checkIsValidUser = (req, res, next) => {
   next();
 };
 const checkIsValidUpdate = (req, res, next) => {
-  const { lastName, name, newPassword, street, city } = req.body;
+  const { lastName, name, newPassword} = req.body;
   const number = parseInt(req.body.number),
-    streetNumber = parseInt(req.body.streetNumber);
+    roomNumber = parseInt(req.body.roomNumber);
 
   if (newPassword) {
     if (newPassword.length < 5)
@@ -71,17 +71,17 @@ const checkIsValidUpdate = (req, res, next) => {
       .status(400)
       .json({ successful: false, message: ` Name is not valid` });
 
-  if (!street || !city || !streetNumber)
+  if (!roomNumber)
     return res
       .status(400)
-      .json({ successful: false, message: `Full address is required` });
+      .json({ successful: false, message: `Room Number is required` });
 
-  if (typeof streetNumber !== "number" || streetNumber.length > 4)
+  if (typeof roomNumber !== "number" || roomNumber.length > 4)
     return res
       .status(400)
-      .json({ successful: false, message: `Street address not valid` });
+      .json({ successful: false, message: `Room Number is not valid` });
 
-  req.userAddress = `${street} ${streetNumber}, ${city}`;
+  req.userAddress = `${roomNumber}`;
   req.userName = `${name} ${lastName}`;
   next();
 };

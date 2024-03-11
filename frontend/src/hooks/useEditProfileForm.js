@@ -22,10 +22,8 @@ export default function useEditProfileForm() {
   const defaultsValues = {
     name: (currentUser && currentUser.name) ? currentUser.name.split(" ")[0] : "",
     lastName: (currentUser && currentUser.name) ? currentUser.name.split(" ")[1] : "",
-    street: (currentUser && currentUser.address) ? currentUser.address.split(",")[0].split(" ").slice(0, -1).join(" ") : "",
-    streetNumber: (currentUser && currentUser.address) ? currentUser.address.split(",")[0].split(" ").splice(-1) : "",
+    roomNumber: (currentUser && currentUser.address) ? currentUser.address.split(",")[0].split(" ").splice(-1) : "",
     number: currentUser ? currentUser.number : "",
-    city: (currentUser && currentUser.address) ? currentUser.address.split(",")[1].trim() : "",
   };
   
 
@@ -43,19 +41,14 @@ export default function useEditProfileForm() {
     e.preventDefault();
 
     const name = data.userName?.toLowerCase(),
-      lastName = data.userLastName?.toLowerCase(),
-      city = data.userCityAddress?.toLowerCase(),
-      street = data.userStreetAddress?.toLowerCase();
-
+      lastName = data.userLastName?.toLowerCase();
     const info = {
       name,
       lastName,
       password: data.userPassword || null,
       newPassword: data.userNewPassword || null,
       number: data.userNumber,
-      city,
-      street,
-      streetNumber: data.userStreetNumber,
+      roomNumber: data.userRoomNumber,
     };
     await updateProfileAPI({
       setFormIsLoading,
