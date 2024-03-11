@@ -22,7 +22,7 @@ export default function useEditProfileForm() {
   const defaultsValues = {
     name: (currentUser && currentUser.name) ? currentUser.name.split(" ")[0] : "",
     lastName: (currentUser && currentUser.name) ? currentUser.name.split(" ")[1] : "",
-    roomNumber: (currentUser && currentUser.address) ? currentUser.address.split(",")[0].split(" ").splice(-1) : "",
+    ID: (currentUser && currentUser.identification) ? currentUser.identification.split(",")[0].split(" ").splice(-1) : "",
     number: currentUser ? currentUser.number : "",
   };
   
@@ -48,7 +48,7 @@ export default function useEditProfileForm() {
       password: data.userPassword || null,
       newPassword: data.userNewPassword || null,
       number: data.userNumber,
-      roomNumber: data.userRoomNumber,
+      ID: data.userID,
     };
     await updateProfileAPI({
       setFormIsLoading,

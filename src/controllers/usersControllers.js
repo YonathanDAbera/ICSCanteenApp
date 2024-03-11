@@ -127,7 +127,7 @@ const updateProfileById = async (req, res) => {
     let profileState;
 
     if (
-      (req.userAddress || userFound.address) &&
+      (req.useridentification || userFound.identification) &&
       (number || userFound.number)
     ) {
       profileState = "completed";
@@ -142,7 +142,7 @@ const updateProfileById = async (req, res) => {
         password: encodedPassword || userFound.password,
         email: userFound.email,
         roles: userFound.roles,
-        address: req.userAddress || userFound.address,
+        identification: req.useridentification || userFound.identification,
         number: number || userFound.number,
         profileState: profileState,
         client: userFound.client,

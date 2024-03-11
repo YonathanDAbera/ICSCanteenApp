@@ -38,8 +38,8 @@ export default function OrderDetails() {
               {thisOrder?.client[0]?.name}
             </p>
             <p>
-              <b>Room Number: </b>
-              {thisOrder?.client[0]?.address}
+              <b>ID: </b>
+              {thisOrder?.client[0]?.identification}
             </p>
             <p>
               <b>Phone Number:</b>

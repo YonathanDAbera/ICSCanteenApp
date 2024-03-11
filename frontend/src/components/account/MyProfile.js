@@ -99,9 +99,9 @@ function MyProfile() {
             <UserInfo>
               {currentUser.number || "No number inputed"}
             </UserInfo>
-            <dt>Room Number: </dt>
+            <dt>ID: </dt>
             <UserInfo>
-              {currentUser.address || "No room number inputed"}
+              {currentUser.identification || "No ID inputed"}
             </UserInfo>
           </dl>
           <br />

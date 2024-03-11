@@ -121,18 +121,18 @@ function CellphoneInput({ register, errors, placeholder, defaultValue }) {
     </Fragment>
   );
 }
-function RoomNumberInput({ errors, placeholder, register, defaultValue }) {
+function IDInput({ errors, placeholder, register, defaultValue }) {
   return (
     <Fragment>
-      {errors.userRoomNumber && (
+      {errors.useridentification && (
         <ErrorMessage role="alert">
-          {errors.userRoomNumber.message}
+          {errors.useridentification.message}
         </ErrorMessage>
       )}
 
       <TextInput
         placeholder={placeholder}
-        name="userRoomNumber"
+        name="userID"
         defaultValue={defaultValue || ""}
         ref={register({
           required: "*The field is required",
@@ -146,7 +146,7 @@ function RoomNumberInput({ errors, placeholder, register, defaultValue }) {
             message: "*Only numbers accepted",
           },
         })}
-        style={{ borderColor: errors.userRoomNumber && "#bf0000" }}
+        style={{ borderColor: errors.useridentification && "#bf0000" }}
       />
     </Fragment>
   );
@@ -188,11 +188,11 @@ function EditMyProfile() {
           register={register}
           placeholder="Your phone number..."
         />
-        <RoomNumberInput
+        <IDInput
           errors={errors}
           register={register}
-          placeholder="Room number..."
-          defaultValue={defaultsValues.roomNumber}
+          placeholder="ID Number..."
+          defaultValue={defaultsValues.ID}
         />
         <InputWrapper>
           <NewPasswordCheckbox

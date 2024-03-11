@@ -2,7 +2,7 @@ import styled from "styled-components";
 import background from "../../img/about-background.png";
 import SectionTitle from "../SectionTitle";
 import watchIcon from "../../img/stopwatch-solid.svg";
-import burgerIcon from "../../img/hamburger-solid.svg";
+import ICSLogo from "../../img/hamburger-solid.svg";
 import walletIcon from "../../img/wallet-solid.svg";
 
 const StyledAbout = styled.section`
@@ -95,7 +95,7 @@ export default function About() {
           </p>
           <Features>
             <div>
-              <Icon src={burgerIcon} alt="best-ingredients" />
+              <Icon src={ICSLogo} alt="best-ingredients" />
               <h4>Quality</h4>
             </div>
             <div>

@@ -97,7 +97,7 @@ function UserInfoCell({ user, handelClick }) {
   };
   return (
     <UserCell>
-      {(user.number || user.address) && <SeeMoreButton trigger={trigger} />}
+      {(user.number || user.identification) && <SeeMoreButton trigger={trigger} />}
 
       <UserName>
         {user?.name}
@@ -117,10 +117,10 @@ function UserInfoCell({ user, handelClick }) {
               {user?.number}
             </p>
           )}
-          {user?.address && (
+          {user?.identification && (
             <p>
-              <b>Address:</b>
-              {user?.address}
+              <b>ID:</b>
+              {user?.identification}
             </p>
           )}
         </Fragment>

@@ -2,9 +2,9 @@ import styled  from 'styled-components'
 import {Link} from 'react-router-dom'
 import useStaticInfoSlider from '../../hooks/useStaticInfoSlider'
 import {ButtonPrimary} from '../Buttons'
-import BurgerSlide from '../../img/hamburger-slide.jpg'
-import PizzaSlide from '../../img/pizza-slide.jpg'
-import EmpanadaSlide from '../../img/empanadas-slide.jpg'
+import Chips from '../../img/Chips.jpg'
+import Tibs from '../../img/Tibs.jpg'
+import DoroWet from '../../img/DoroWet.jpg'
 
 const StyledSlider = styled.section`
 position:relative;
@@ -157,22 +157,22 @@ const  { prevSlide, nextSlide ,moveToSlide, slide} = useStaticInfoSlider()
     <SliderContainer>
 
       <Slide   data-testid='slider1'  slide={slide} index={1}>
-        <SliderImage  src={BurgerSlide} alt= "burger"></SliderImage>
+        <SliderImage  src={Chips} alt= "chips"></SliderImage>
         <SliderContent>
           <Span>The Best Deals</Span>
-          <SliderTitle>Super Discount<br></br>Hamburgers</SliderTitle>
+          <SliderTitle>Super Discount<br></br>Chips</SliderTitle>
           <ButtonPrimary as={Link} to="/menu">Order Now</ButtonPrimary></SliderContent>
           </Slide>
          <Slide data-testid='slider2'  slide={slide} index={2}>
-           <SliderImage src={PizzaSlide} alt= "pizza"></SliderImage>
-           <SliderContent><Span>The Best Deals</Span><SliderTitle>Super Discount<br></br>Pizza</SliderTitle><ButtonPrimary as={Link} to="/menu">Order Now</ButtonPrimary></SliderContent>
+           <SliderImage src={Tibs} alt= "tibs"></SliderImage>
+           <SliderContent><Span>The Best Deals</Span><SliderTitle>Super Discount<br></br>Tibs</SliderTitle><ButtonPrimary as={Link} to="/menu">Order Now</ButtonPrimary></SliderContent>
            </Slide>
             <Slide data-testid='slider3'  slide={slide} index={3}>
-              <SliderImage src={EmpanadaSlide} alt= "empanadas" >
+              <SliderImage src={DoroWet} alt= "dorowet" >
 
               </SliderImage>
               <SliderContent><Span>The Best Deals</Span>
-              <SliderTitle>Super Discounts<br></br>Empanadas</SliderTitle>
+              <SliderTitle>Super Discounts<br></br>DoroWet</SliderTitle>
               <ButtonPrimary as={Link} to="/menu">Order Now</ButtonPrimary>
               </SliderContent>
               </Slide>

@@ -1,7 +1,7 @@
 import useLoginForm from "../../hooks/useLoginForm";
 import { LoaderSpinner } from "./../LoaderSpinner";
 import { ButtonPrimary } from "../Buttons";
-import burgerIcon from "../../img/burger-icon.png";
+import ICSLogo from "../../img/ICSLogo.png";
 
 import {
   FormCard,
@@ -25,7 +25,7 @@ export default function SinginForm({ setIsModalOpened }) {
 
   return (
     <FormCard>
-      <Logo src={burgerIcon} alt="LogoBrand"></Logo>
+      <Logo src={ICSLogo} alt="LogoBrand"></Logo>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <UserEmailInput errors={errors} register={register} name="userEmail" />
         <UserPasswordInput

@@ -1,5 +1,5 @@
 import styled  from 'styled-components'
-import background from '../../img/sing-up-background.jpg'
+import background from '../../img/ICSOutsidePhoto.jpg'
 
 const StyledInitSession = styled.main`
     min-height: 100vh;

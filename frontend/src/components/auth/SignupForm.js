@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Fragment } from "react";
 import useSignupForm from "../../hooks/useSignupForm";
 import { ButtonPrimary } from "../Buttons";
-import burgerIcon from "../../img/burger-icon.png";
+import ICSLogo from "../../img/ICSLogo.png";
 import { TextInput, ErrorMessage } from "../contact/ContactForm";
 import { LoaderSpinner } from "../LoaderSpinner";
 
@@ -220,7 +220,7 @@ export default function SignupForm() {
   } = useSignupForm();
   return (
     <FormCard>
-      <Logo src={burgerIcon} alt="LogoBrand"></Logo>
+      <Logo src={ICSLogo} alt="LogoBrand"></Logo>
       <Form data-testid="singUpForm" onSubmit={handleSubmit(onSubmit)}>
         <UserNameInput errors={errors} register={register} />
         <UserLastNameInput errors={errors} register={register} />

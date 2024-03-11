@@ -39,7 +39,7 @@ const checkIsValidUser = (req, res, next) => {
 const checkIsValidUpdate = (req, res, next) => {
   const { lastName, name, newPassword} = req.body;
   const number = parseInt(req.body.number),
-    roomNumber = parseInt(req.body.roomNumber);
+    ID = parseInt(req.body.ID);
 
   if (newPassword) {
     if (newPassword.length < 5)
@@ -71,17 +71,17 @@ const checkIsValidUpdate = (req, res, next) => {
       .status(400)
       .json({ successful: false, message: ` Name is not valid` });
 
-  if (!roomNumber)
+  if (!ID)
     return res
       .status(400)
-      .json({ successful: false, message: `Room Number is required` });
+      .json({ successful: false, message: `ID is required` });
 
-  if (typeof roomNumber !== "number" || roomNumber.length > 4)
+  if (typeof ID !== "number" || ID.length > 4)
     return res
       .status(400)
-      .json({ successful: false, message: `Room Number is not valid` });
+      .json({ successful: false, message: `ID is not valid` });
 
-  req.userAddress = `${roomNumber}`;
+  req.useridentification = `${ID}`;
   req.userName = `${name} ${lastName}`;
   next();
 };

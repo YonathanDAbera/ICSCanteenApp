@@ -200,7 +200,7 @@ export default function UserOrdersPage({ closeNotification }) {
                       }
                     </span>
                   </td>
-                  <td>{order.client[0].address}</td>
+                  <td>{order.client[0].identification}</td>
                   <td>${order?.total}</td>
                   <td>
                     {" "}
