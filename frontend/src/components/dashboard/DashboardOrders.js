@@ -145,7 +145,7 @@ export default function DashboardOrders({ closeNotification }) {
               <tr>
                 <th>Order No.</th>
                 <th>Date</th>
-                <th>Room Number</th>
+                <th>ID</th>
                 <th>Total</th>
                 <th>Status</th>
               </tr>
@@ -174,7 +174,7 @@ export default function DashboardOrders({ closeNotification }) {
                       }
                     </span>
                   </td>
-                  <td>{order?.client[0].identification}</td>
+                  <td>{order?.client[0]?.identification}</td>
                   <td>${order?.total}</td>
                   <td>
                     {" "}

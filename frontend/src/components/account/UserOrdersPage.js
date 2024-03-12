@@ -173,7 +173,7 @@ export default function UserOrdersPage({ closeNotification }) {
               <tr>
                 <th>Order No.</th>
                 <th>Date</th>
-                <th>Room Number</th>
+                <th>Identification</th>
                 <th>Total</th>
                 <th>Status</th>
                 <th>Actions</th>
